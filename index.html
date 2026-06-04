@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Almara — Pitch</title>
+<style>
+  :root { --paper:#F4EAD0; --ink:#241A0F; --gold:#C9941C; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Inter",sans-serif;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px; }
+  h1 { font-family:Georgia,"Cormorant Garamond",serif; font-weight:600; letter-spacing:.32em;
+    font-size:clamp(26px,5vw,40px); margin:0 0 4px; }
+  p.tag { font-family:Georgia,serif; font-style:italic; color:#5A4A38; margin:0 0 22px; font-size:clamp(15px,3.5vw,19px); }
+  video { width:min(380px,92vw); aspect-ratio:9/16; border-radius:18px; background:#000;
+    box-shadow:0 18px 50px rgba(40,30,15,.28); display:block; }
+  p.foot { color:#5A4A38; font-size:13px; margin-top:20px; }
+</style>
+</head>
+<body>
+  <h1>ALMARA</h1>
+  <p class="tag">Where small efforts add up.</p>
+  <video controls playsinline preload="metadata" poster="">
+    <source src="almara-pitch.mp4" type="video/mp4">
+    Your browser doesn't support the video tag.
+  </video>
+  <p class="foot">A quiet place to grow · for ages 7–14 · iOS</p>
+</body>
+</html>
