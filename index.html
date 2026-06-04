@@ -1,30 +1,247 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Almara — Pitch</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Almara — A quiet place to grow</title>
+<meta name="description" content="Almara is a contemplative growth app for kids 7–14. Real-life effort — not screen time — quietly grows a character they care about." />
+<meta property="og:title" content="Almara — A quiet place to grow" />
+<meta property="og:description" content="Real-life effort quietly grows a character your child cares about. No streaks, no loot boxes, no dopamine tricks." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --paper:#F4EAD0; --ink:#241A0F; --gold:#C9941C; }
-  * { box-sizing:border-box; }
-  body { margin:0; min-height:100vh; background:var(--paper); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Inter",sans-serif;
-    display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px; }
-  h1 { font-family:Georgia,"Cormorant Garamond",serif; font-weight:600; letter-spacing:.32em;
-    font-size:clamp(26px,5vw,40px); margin:0 0 4px; }
-  p.tag { font-family:Georgia,serif; font-style:italic; color:#5A4A38; margin:0 0 22px; font-size:clamp(15px,3.5vw,19px); }
-  video { width:min(380px,92vw); aspect-ratio:9/16; border-radius:18px; background:#000;
-    box-shadow:0 18px 50px rgba(40,30,15,.28); display:block; }
-  p.foot { color:#5A4A38; font-size:13px; margin-top:20px; }
+  :root{
+    --paper:#F4EAD0; --paper-2:#EFE2C4; --cream:#FBF4E2;
+    --ink:#241A0F; --ink-soft:#5A4A38; --ink-mute:#897662;
+    --gold:#EAB73A; --gold-deep:#C9941C; --sage:#5F7659; --terra:#C77855;
+    --line:rgba(58,42,24,.12);
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Inter Tight",-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);
+    -webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .serif{font-family:var(--serif)}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+  a{color:inherit}
+
+  /* HERO */
+  .hero{position:relative;min-height:96vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:80px 28px}
+  .hero-bg{position:absolute;inset:0;background:url('assets/almara-bg.jpg') center/cover no-repeat;
+    transform:scale(1.05)}
+  .hero-scrim{position:absolute;inset:0;background:
+    radial-gradient(ellipse 80% 60% at 50% 46%, rgba(22,15,8,.46), rgba(22,15,8,0) 72%),
+    linear-gradient(180deg, rgba(244,234,208,.30) 0%, rgba(244,234,208,0) 22%, rgba(244,234,208,0) 70%, rgba(244,234,208,.96) 100%)}
+  .hero-inner{position:relative;max-width:760px}
+  .mark{display:inline-flex;align-items:center;gap:14px;color:var(--cream)}
+  .leaf{width:22px;height:34px;background:var(--gold);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;transform:rotate(-12deg)}
+  .mark .name{font-family:var(--serif);font-weight:600;letter-spacing:.34em;font-size:clamp(30px,6vw,52px);padding-left:18px}
+  .hero h1{font-family:var(--serif);font-weight:600;font-style:italic;color:var(--cream);
+    font-size:clamp(38px,8vw,76px);line-height:1.04;margin:26px 0 18px;text-shadow:0 2px 30px rgba(20,14,6,.4)}
+  .hero p.lede{color:#F2E7CE;font-size:clamp(17px,2.5vw,22px);font-weight:500;max-width:560px;margin:0 auto 34px;text-shadow:0 1px 14px rgba(20,14,6,.5)}
+  .cta{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{font-weight:700;font-size:17px;border-radius:999px;padding:15px 30px;text-decoration:none;display:inline-block;border:0;cursor:pointer}
+  .btn-gold{background:linear-gradient(180deg,var(--gold),var(--gold-deep));color:#3A2A0A;box-shadow:0 10px 24px rgba(201,148,28,.34)}
+  .btn-ghost{background:rgba(251,244,226,.16);color:var(--cream);border:1.5px solid rgba(251,244,226,.5)}
+  .scroll-hint{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:var(--ink-soft);font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+  /* SECTIONS */
+  section{padding:84px 0}
+  .center{text-align:center}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,50px);line-height:1.08;letter-spacing:-.01em}
+  .sub{color:var(--ink-soft);font-size:clamp(16px,2.2vw,20px);max-width:620px;margin:16px auto 0}
+
+  .pitch{background:#2A2014;color:var(--cream);text-align:center}
+  .pitch h2{color:var(--cream)}
+  .pitch .accent{color:var(--gold)}
+  .pitch p{color:#E7D9BE;font-size:clamp(17px,2.4vw,21px);max-width:640px;margin:22px auto 0}
+
+  /* STEPS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .step{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:30px 26px;text-align:left}
+  .step .n{font-family:var(--serif);font-weight:600;font-size:30px;color:var(--gold-deep);
+    width:54px;height:54px;border-radius:50%;background:rgba(234,183,58,.16);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .step h3{font-size:21px;font-weight:700;margin-bottom:8px}
+  .step p{color:var(--ink-soft);font-size:16px}
+
+  /* VIDEO */
+  .video-sec{background:var(--paper-2)}
+  .video-frame{max-width:430px;margin:40px auto 0;border-radius:26px;overflow:hidden;
+    box-shadow:0 26px 60px rgba(40,30,15,.30);background:#000;border:1px solid var(--line)}
+  .video-frame video{display:block;width:100%;aspect-ratio:9/16}
+
+  /* REWARDS */
+  .chips{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px}
+  .chip{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:18px 24px;
+    display:flex;align-items:center;gap:14px;box-shadow:0 8px 22px rgba(40,30,15,.08)}
+  .chip .nm{font-weight:700;font-size:17px}
+  .chip .cost{font-weight:800;color:var(--gold-deep);font-size:15px}
+
+  /* GRID of art */
+  .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:48px}
+  .art{background:linear-gradient(180deg,var(--cream),#F3E7CC);border:1px solid var(--line);border-radius:22px;
+    padding:26px 18px;text-align:center}
+  .art img{height:120px;width:auto;object-fit:contain;filter:drop-shadow(0 10px 16px rgba(40,30,15,.18))}
+  .art .label{margin-top:14px;font-weight:700;font-size:16px}
+  .art .kind{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-top:2px}
+
+  /* PARENTS */
+  .parents{background:#27331F;color:var(--cream)}
+  .parents h2{color:var(--cream)}
+  .pbullets{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
+  .pb{display:flex;gap:14px;align-items:flex-start;background:rgba(251,244,226,.06);border:1px solid rgba(251,244,226,.12);border-radius:16px;padding:20px 22px}
+  .pb .tick{color:var(--gold);font-weight:800;font-size:20px;line-height:1.2}
+  .pb p{color:#E7E2D2;font-size:16.5px}
+  .pb b{color:var(--cream)}
+
+  /* FOOTER */
+  footer{position:relative;text-align:center;padding:96px 28px 70px;overflow:hidden}
+  .foot-bg{position:absolute;inset:0;background:url('assets/almara-bg.jpg') center 30%/cover no-repeat}
+  .foot-scrim{position:absolute;inset:0;background:linear-gradient(180deg,var(--paper) 0%,rgba(244,234,208,.55) 40%,rgba(20,14,6,.42) 100%)}
+  .foot-inner{position:relative}
+  footer .name{font-family:var(--serif);font-weight:600;letter-spacing:.32em;font-size:clamp(26px,5vw,40px);color:var(--ink)}
+  footer .grow{font-family:var(--serif);font-style:italic;font-size:clamp(22px,4vw,34px);color:var(--ink);margin-top:8px}
+  footer .meta{margin-top:26px;color:#fff;font-weight:600;letter-spacing:.04em;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+  footer .fine{margin-top:14px;color:#f3e9d8;font-size:13px;opacity:.85;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+
+  @media (max-width:760px){
+    .steps{grid-template-columns:1fr}
+    .art-grid{grid-template-columns:repeat(2,1fr)}
+    .pbullets{grid-template-columns:1fr}
+    section{padding:64px 0}
+  }
 </style>
 </head>
 <body>
-  <h1>ALMARA</h1>
-  <p class="tag">Where small efforts add up.</p>
-  <video controls playsinline preload="metadata" poster="">
-    <source src="almara-pitch.mp4" type="video/mp4">
-    Your browser doesn't support the video tag.
-  </video>
-  <p class="foot">A quiet place to grow · for ages 7–14 · iOS</p>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
+      <div class="mark"><span class="leaf"></span><span class="name">ALMARA</span></div>
+      <h1>Where small efforts<br>add up.</h1>
+      <p class="lede">A contemplative growth app for kids 7–14. Real-life effort — not screen time — quietly grows a character they care about.</p>
+      <div class="cta">
+        <a class="btn btn-gold" href="#video">Watch the 40-second story</a>
+        <a class="btn btn-ghost" href="#how">How it works</a>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll ↓</div>
+  </header>
+
+  <!-- POSITIONING -->
+  <section class="pitch">
+    <div class="wrap">
+      <h2>Most kids' apps are built to hold attention.<br><span class="accent">Almara is built to hand it back.</span></h2>
+      <p>No streaks that punish. No confetti. No loot boxes. Just real things — reading, helping, resting, making — adding up, day after day.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap center">
+      <div class="eyebrow">The daily loop</div>
+      <h2 style="margin-top:14px">Real life in. Real growth out.</h2>
+      <p class="sub">Thirty seconds a day. No nagging, no screens to get lost in.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>Do something real</h3>
+          <p>Your child reads, helps at home, plays outside, or gets to bed on time — away from the phone.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>A 30-second check-in</h3>
+          <p>They tap what they did. A grown-up approves it in about fifteen seconds. That's the whole ritual.</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>Their character grows</h3>
+          <p>Quietly, in the background — the way real growth actually happens. Not all at once. Not with confetti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" class="video-sec center">
+    <div class="wrap">
+      <div class="eyebrow">See it in 40 seconds</div>
+      <h2 style="margin-top:14px">A quiet place to grow.</h2>
+      <div class="video-frame">
+        <video controls playsinline preload="metadata">
+          <source src="almara-pitch.mp4" type="video/mp4">
+          Your browser doesn't support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- REWARDS -->
+  <section class="center">
+    <div class="wrap">
+      <div class="eyebrow">Real-life rewards</div>
+      <h2 style="margin-top:14px">Effort becomes almas&nbsp;✦</h2>
+      <p class="sub">Saved toward wishes a grown-up sets — a treat, an outing, extra story time. Spent on real life, never digital trinkets.</p>
+      <div class="chips">
+        <div class="chip"><span class="nm">A Yogurtland treat</span><span class="cost">60 ✦</span></div>
+        <div class="chip"><span class="nm">Extra story at bedtime</span><span class="cost">50 ✦</span></div>
+        <div class="chip"><span class="nm">Choose Saturday breakfast</span><span class="cost">60 ✦</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EARNED, NEVER BOUGHT -->
+  <section style="background:var(--paper-2)">
+    <div class="wrap center">
+      <div class="eyebrow">Skills &amp; gear</div>
+      <h2 style="margin-top:14px">Earned by growing — never bought.</h2>
+      <p class="sub">Read seven days running and earn a skill. Grow into a new stage and earn a cloak. Almas are for real-life rewards; the avatar's growth is its own reward.</p>
+      <div class="art-grid">
+        <div class="art"><img src="assets/skill/skill-friend-of-books.png" alt="Friend of Books skill"><div class="label">Friend of Books</div><div class="kind">Skill</div></div>
+        <div class="art"><img src="assets/equip/equip-wayfarers-cloak.png" alt="Wayfarer's Cloak"><div class="label">Wayfarer's Cloak</div><div class="kind">Equipment</div></div>
+        <div class="art"><img src="assets/skill/skill-strong-body.png" alt="Strong Body skill"><div class="label">Strong Body</div><div class="kind">Skill</div></div>
+        <div class="art"><img src="assets/equip/equip-voyagers-compass.png" alt="Voyager's Compass"><div class="label">Voyager's Compass</div><div class="kind">Equipment</div></div>
+        <div class="art"><img src="assets/skill/skill-kind-hands.png" alt="Kind Hands skill"><div class="label">Kind Hands</div><div class="kind">Skill</div></div>
+        <div class="art"><img src="assets/equip/equip-balanced-traveler-emblem.png" alt="Balanced Traveler emblem"><div class="label">Balanced Traveler</div><div class="kind">Equipment</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR PARENTS -->
+  <section class="parents">
+    <div class="wrap center">
+      <div class="eyebrow" style="color:var(--gold)">For the grown-ups</div>
+      <h2 style="margin-top:14px">Calm by design.</h2>
+      <p class="sub" style="color:#E7E2D2">Built to make your job easier — and to never work against your family.</p>
+      <div class="pbullets" style="text-align:left">
+        <div class="pb"><span class="tick">✓</span><p><b>Fifteen seconds a day.</b> Approve the day's check-in and you're done.</p></div>
+        <div class="pb"><span class="tick">✓</span><p><b>Screen-time-positive.</b> The app rewards life away from the phone.</p></div>
+        <div class="pb"><span class="tick">✓</span><p><b>You choose every reward.</b> Real treats and outings, set by you.</p></div>
+        <div class="pb"><span class="tick">✓</span><p><b>No ads. No loot boxes.</b> No pressure to spend, ever.</p></div>
+        <div class="pb"><span class="tick">✓</span><p><b>Quiet and slow on purpose.</b> Growth that mirrors the real thing.</p></div>
+        <div class="pb"><span class="tick">✓</span><p><b>Made for ages 7–14.</b> Gentle, age-appropriate, and warm.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-bg"></div>
+    <div class="foot-scrim"></div>
+    <div class="foot-inner">
+      <div class="name">ALMARA</div>
+      <div class="grow">A quiet place to grow.</div>
+      <div class="meta">For ages 7–14 · coming to iPhone</div>
+      <div class="fine">An early look. Artwork and music are placeholders.</div>
+    </div>
+  </footer>
+
 </body>
 </html>
