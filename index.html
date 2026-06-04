@@ -109,10 +109,32 @@
   footer .meta{margin-top:26px;color:#fff;font-weight:600;letter-spacing:.04em;text-shadow:0 1px 10px rgba(0,0,0,.4)}
   footer .fine{margin-top:14px;color:#f3e9d8;font-size:13px;opacity:.85;text-shadow:0 1px 10px rgba(0,0,0,.4)}
 
+  /* AGE TIERS */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;text-align:left}
+  .tier{border-radius:22px;padding:30px 26px;border:1px solid var(--line);background:var(--cream)}
+  .tier .badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  .tier .age{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1}
+  .tier h3{font-size:19px;font-weight:700;margin:4px 0 10px}
+  .tier p{color:var(--ink-soft);font-size:15.5px}
+  .b-now{background:rgba(95,118,89,.16);color:var(--sage)}
+  .b-next{background:rgba(234,183,58,.20);color:var(--gold-deep)}
+  .b-later{background:rgba(199,120,85,.16);color:var(--terra)}
+
+  /* ROADMAP */
+  .roadmap{background:var(--paper-2)}
+  .rlist{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px;text-align:left}
+  .ritem{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+  .ritem .when{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep)}
+  .ritem h4{font-size:18px;font-weight:700;margin:8px 0 6px}
+  .ritem p{color:var(--ink-soft);font-size:15px}
+
   @media (max-width:760px){
     .steps{grid-template-columns:1fr}
     .art-grid{grid-template-columns:repeat(2,1fr)}
     .pbullets{grid-template-columns:1fr}
+    .tiers{grid-template-columns:1fr}
+    .rlist{grid-template-columns:1fr}
     section{padding:64px 0}
   }
 </style>
@@ -227,6 +249,54 @@
         <div class="pb"><span class="tick">✓</span><p><b>No ads. No loot boxes.</b> No pressure to spend, ever.</p></div>
         <div class="pb"><span class="tick">✓</span><p><b>Quiet and slow on purpose.</b> Growth that mirrors the real thing.</p></div>
         <div class="pb"><span class="tick">✓</span><p><b>Made for ages 7–14.</b> Gentle, age-appropriate, and warm.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGE-SPECIFIC INTERFACES -->
+  <section id="ages">
+    <div class="wrap center">
+      <div class="eyebrow">Grows with your child</div>
+      <h2 style="margin-top:14px">One model. Three lenses.</h2>
+      <p class="sub">The growth underneath never changes — the way it's shown grows up with your child. Today everyone starts with the Young Learners experience; age-adaptive interfaces roll out next.</p>
+      <div class="tiers">
+        <div class="tier">
+          <span class="badge b-now">Available now</span>
+          <div class="age">7–9</div>
+          <h3>Young Learners</h3>
+          <p>Big, warm, and voice-supported. One clear story: tap what you did, watch your character grow. New words arrive with read-first definitions and gentle audio help.</p>
+        </div>
+        <div class="tier">
+          <span class="badge b-next">Coming next</span>
+          <div class="age">10–12</div>
+          <h3>Pre-teens</h3>
+          <p>More agency and detail. See the five paths and the skills behind them, set personal goals, and keep streaks alive — without losing the calm.</p>
+        </div>
+        <div class="tier">
+          <span class="badge b-later">On the horizon</span>
+          <div class="age">13–14</div>
+          <h3>Teens</h3>
+          <p>Quieter and more grown-up. Subtle aesthetics, deeper stats, and real autonomy — growth that respects their independence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="roadmap">
+    <div class="wrap center">
+      <div class="eyebrow">On the horizon</div>
+      <h2 style="margin-top:14px">Where Almara is headed.</h2>
+      <p class="sub">An early product, built slowly and on purpose. Here's what's coming.</p>
+      <div class="rlist">
+        <div class="ritem"><div class="when">Next</div><h4>Age-adaptive interfaces</h4><p>The Young Learners, Pre-teen, and Teen experiences above — the same world, presented for each age.</p></div>
+        <div class="ritem"><div class="when">Next</div><h4>A companion that walks alongside</h4><p>A small creature that grows with your child and travels beside their avatar.</p></div>
+        <div class="ritem"><div class="when">Soon</div><h4>Apple Health &amp; Screen Time</h4><p>Auto-credit sleep, movement, and screen-goal wins — fewer taps, more trust.</p></div>
+        <div class="ritem"><div class="when">Soon</div><h4>A gentle parent view</h4><p>Outcomes and encouragement, never surveillance. You see growth, not a feed of data.</p></div>
+        <div class="ritem"><div class="when">Ongoing</div><h4>More skills, gear &amp; letters</h4><p>A widening library of things to discover, earn, and grow into.</p></div>
+        <div class="ritem"><div class="when">Later</div><h4>Family accounts</h4><p>Siblings growing side by side, with a shared crew.</p></div>
+        <div class="ritem"><div class="when">Before launch</div><h4>Original art &amp; music</h4><p>Commissioned illustrations and a licensed score, replacing today's placeholders.</p></div>
+        <div class="ritem"><div class="when">Later</div><h4>Beyond iPhone</h4><p>Starting on iOS, then thoughtfully expanding from there.</p></div>
       </div>
     </div>
   </section>
