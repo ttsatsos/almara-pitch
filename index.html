@@ -131,6 +131,14 @@
   .ritem h4{font-size:18px;font-weight:700;margin:8px 0 6px}
   .ritem p{color:var(--ink-soft);font-size:15px}
 
+  /* WAITLIST */
+  .waitlist{background:linear-gradient(180deg,var(--paper),var(--paper-2));text-align:center}
+  .wl-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .wl-form input[type=email]{font-family:var(--sans);font-size:17px;padding:15px 24px;border-radius:999px;
+    border:1.5px solid var(--line);background:var(--cream);min-width:300px;color:var(--ink)}
+  .wl-form input[type=email]:focus{outline:none;border-color:var(--gold-deep)}
+  .wl-msg{margin-top:18px;color:var(--sage);font-weight:700;min-height:24px}
+
   @media (max-width:760px){
     .steps{grid-template-columns:1fr}
     .art-grid{grid-template-columns:repeat(2,1fr)}
@@ -303,6 +311,21 @@
     </div>
   </section>
 
+  <!-- WAITLIST -->
+  <section id="waitlist" class="waitlist">
+    <div class="wrap">
+      <div class="eyebrow">Be the first to know</div>
+      <h2 style="margin-top:14px">Join the waitlist.</h2>
+      <p class="sub">We'll email you when Almara is ready for your family — and nothing else. No spam, ever.</p>
+      <form id="wl-form" class="wl-form" novalidate>
+        <input type="email" name="email" required placeholder="you@email.com" autocomplete="email" />
+        <button type="submit" class="btn btn-gold">Notify me</button>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+      </form>
+      <div id="wl-msg" class="wl-msg" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="foot-bg"></div>
@@ -314,6 +337,41 @@
       <div class="fine">An early look. Artwork and music are placeholders.</div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('wl-form');
+      var msg = document.getElementById('wl-msg');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = (form.email.value || '').trim();
+        if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+          msg.style.color = '#C77855';
+          msg.textContent = 'Please enter a valid email.';
+          return;
+        }
+        if (form._honey.value) return; // bot trap
+        msg.style.color = '';
+        msg.textContent = 'Adding you…';
+        fetch('https://formsubmit.co/ajax/ttsatsos@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email, _subject: 'New Almara waitlist signup', _template: 'table' })
+        })
+          .then(function (r) { return r.json().catch(function () { return {}; }); })
+          .then(function () {
+            msg.style.color = '';
+            msg.textContent = "You're on the list — we'll be in touch.";
+            form.reset();
+          })
+          .catch(function () {
+            msg.style.color = '#C77855';
+            msg.textContent = 'Something went wrong — please try again.';
+          });
+      });
+    })();
+  </script>
 
 </body>
 </html>
