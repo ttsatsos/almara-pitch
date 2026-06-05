@@ -79,6 +79,8 @@
   .chips{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px}
   .chip{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:18px 24px;
     display:flex;align-items:center;gap:14px;box-shadow:0 8px 22px rgba(40,30,15,.08)}
+  .chip{flex-direction:column;align-items:flex-start;gap:8px;min-width:210px}
+  .chip .tier-tag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
   .chip .nm{font-weight:700;font-size:17px}
   .chip .cost{font-weight:800;color:var(--gold-deep);font-size:15px}
 
@@ -210,11 +212,11 @@
     <div class="wrap">
       <div class="eyebrow">Real-life rewards</div>
       <h2 style="margin-top:14px">Effort becomes almas&nbsp;✦</h2>
-      <p class="sub">Saved toward wishes a grown-up sets — a treat, an outing, extra story time. Spent on real life, never digital trinkets.</p>
+      <p class="sub">From a small treat to a big day out — saved toward wishes a grown-up sets, spent on real life, never digital trinkets.</p>
       <div class="chips">
-        <div class="chip"><span class="nm">A Yogurtland treat</span><span class="cost">60 ✦</span></div>
-        <div class="chip"><span class="nm">Extra story at bedtime</span><span class="cost">50 ✦</span></div>
-        <div class="chip"><span class="nm">Choose Saturday breakfast</span><span class="cost">60 ✦</span></div>
+        <div class="chip"><span class="tier-tag">Small</span><span class="nm">A Yogurtland treat</span><span class="cost">60 ✦</span></div>
+        <div class="chip"><span class="tier-tag">Bigger</span><span class="nm">A trip to the zoo</span><span class="cost">350 ✦</span></div>
+        <div class="chip"><span class="tier-tag">Big One</span><span class="nm">A day at Legoland</span><span class="cost">2,000 ✦</span></div>
       </div>
     </div>
   </section>
